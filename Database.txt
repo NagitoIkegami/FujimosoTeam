@@ -1,0 +1,74 @@
+#ルートユーザでmysqlにログイン
+mariadb -u root -p (または，mysql -u root -p)
+パスワード：dbroot
+
+#データベース作成
+create database samplebbs;
+
+#データベースを確認
+show databases;
+
+#ユーザ作成
+create user 'samplebbs'@'localhost' identified by 'bbspass';
+
+#ユーザに権限を付与
+grant all on samplebbs.* to 'samplebbs'@'localhost';
+
+#一度exit
+exit
+
+#samplebbs ユーザでログイン
+mysql -u samplebbs -p
+パスワード：bbspass
+
+#データベース切り替え
+use samplebbs;
+
+#テーブルを確認
+show tables;
+
+#テーブル作成
+create table user(
+id varchar(64) primary key,
+password text not null,
+name text not null,
+entry_datetime datetime not null
+);
+
+#テーブル作成
+create table article(
+id int primary key auto_increment,
+title text not null,
+body text not null,
+editor_id varchar(64) not null,
+entry_datetime datetime not null
+);
+
+#テーブルの構造を確認
+desc article;
+
+#テーブルのデータを確認（user）
+select * from user;
+
+#テーブルのデータを確認(article)
+select * from article;
+
+#テーブルのデータを削除したい場合(articleテーブルから，idが1の記事を削除)
+delete from article where id=1;
+
+#テーブルのデータを更新したい場合(articleテーブルの，idが2の記事のbodyを"aaa"に更新)
+update article set body="aaa" where id=2;
+
+#DBのdump(バックアップ)を作成する
+#下記の操作はログアウトしてから行う
+mysqldump --default-character-set=utf8 -u root -p samplebbs>samplebbs_dump.sql
+パスワード入力 (rootのパスワード)
+自身のユーザフォルダにdumpファイルが生成される
+
+#dumpファイルからDBを復元する
+#あらかじめ，データベースの作成まで実施しておく
+#下記の操作はログアウトして行う
+#また，samplebbs_dump.sqlがあるフォルダに移動してからコマンドを実行する
+mysql -u root -p samplebbs<samplebbs_dump.sql
+パスワード入力 (rootのパスワード)
+samplebbsの内容がdumpファイルから復元される
