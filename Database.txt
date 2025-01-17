@@ -72,3 +72,10 @@ mysqldump --default-character-set=utf8 -u root -p samplebbs>samplebbs_dump.sql
 mysql -u root -p samplebbs<samplebbs_dump.sql
 パスワード入力 (rootのパスワード)
 samplebbsの内容がdumpファイルから復元される
+
+---新規---------
+CREATE TABLE likes (
+    user_id VARCHAR(255),
+    article_id VARCHAR(255),
+    PRIMARY KEY (user_id, article_id)
+);

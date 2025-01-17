@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.Dao;
+
 @WebServlet("/GoodAddServlet")
 public class GoodAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,7 +25,10 @@ public class GoodAddServlet extends HttpServlet {
 		
 		String good = request.getParameter("good");
 		System.out.println(good);
-		
+		Dao dao = new Dao();
+		int goodCount = dao.updateGood(good);
+		System.out.println("👍カウント="+goodCount);
+		dao.addGood(goodCount+1,good);
 		
 		//記事リストに戻る
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./ArticleListServlet");

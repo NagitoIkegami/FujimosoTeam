@@ -44,7 +44,7 @@
 		<form action="./GoodAddServlet" method="post">
 			<label>いいね数:<%=a.getGood()%>  
 				      
-				<button type="submit" name="data" value="<%=a.getId() %>">いいね👍</button>
+				<button type="submit" name="good" value="<%=a.getId() %>">いいね👍</button>
 			</label>
 		</form>
 		<br>
