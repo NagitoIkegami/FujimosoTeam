@@ -43,8 +43,8 @@
 		<label>登録日時：<%=sdf.format( a.getEntryDatetime() )%></label><br>
 		<form action="./GoodAddServlet" method="post">
 			<label>いいね数:<%=a.getGood()%>  
-				　
-				<input name = "good" type="submit" value="<%=a.getId() %>">
+				      
+				<button type="submit" name="data" value="<%=a.getId() %>">いいね👍</button>
 			</label>
 		</form>
 		<br>
