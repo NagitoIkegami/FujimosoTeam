@@ -41,9 +41,11 @@
 		<!-- 日時を指定のフォーマットで表示するための命令 -->
 		<%SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");%>
 		<label>登録日時：<%=sdf.format( a.getEntryDatetime() )%></label><br>
-		<label>いいね数:</label>
-		<form action="./EntryArticleServlet" method="post">
-			<button type="button">いいね👍</button>
+		<form action="./GoodAddServlet" method="post">
+			<label>いいね数:<%=a.getGood()%>  
+				　
+				<input name = "good" type="submit" value="<%=a.getId() %>">
+			</label>
 		</form>
 		<br>
 		<br>
