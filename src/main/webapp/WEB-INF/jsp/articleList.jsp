@@ -37,7 +37,8 @@
 		<label>登録者：<br><%=a.getEditorId()%></label> <br>
 		<!-- 日時を指定のフォーマットで表示するための命令 -->
 		<%SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");%>
-		<label>登録日時：<br><%=sdf.format( a.getEntryDatetime() )%></label>
+		<label>登録日時：<br><%=sdf.format( a.getEntryDatetime() )%></label><br>
+		<label>いいね数:</label>
 		<br>
 		<br>
 	<%} %>
