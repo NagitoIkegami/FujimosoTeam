@@ -35,12 +35,12 @@
 	<%for(Article a : aList){%>
 		<!-- <label><%=String.valueOf(a.getId() )%></label> <br> -->
 		<!-- %の直後に=を付けると，そのまま値を表示できる．代わりに，<%out.print(a.getTitle());%>のように書くことも可能 -->
-		<label>タイトル：<br><%=a.getTitle()%></label> <br>
+		<label>タイトル：<%=a.getTitle()%></label> <br>
 		<label>本文：<br><%=a.getBody()%></label> <br>
-		<label>登録者：<br><%=a.getEditorId()%></label> <br>
+		<label>登録者：<%=a.getEditorId()%></label> <br>
 		<!-- 日時を指定のフォーマットで表示するための命令 -->
 		<%SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");%>
-		<label>登録日時：<br><%=sdf.format( a.getEntryDatetime() )%></label><br>
+		<label>登録日時：<%=sdf.format( a.getEntryDatetime() )%></label><br>
 		<label>いいね数:</label>
 		<form action="./EntryArticleServlet" method="post">
 			<button type="button">いいね👍</button>
