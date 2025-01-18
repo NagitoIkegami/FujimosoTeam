@@ -26,8 +26,9 @@ public class GoodAddServlet extends HttpServlet {
 		String good = request.getParameter("good");
 		System.out.println(good);
 		Dao dao = new Dao();
+		//データベースのいいね数を取得
 		int goodCount = dao.updateGood(good);
-		System.out.println("👍カウント="+goodCount);
+		//取得したいいね数に1加算してデータベースに登録
 		dao.addGood(goodCount+1,good);
 		
 		//記事リストに戻る

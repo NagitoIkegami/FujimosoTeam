@@ -30,6 +30,12 @@ public class Article implements Serializable{ //implements Serializableが必要
 	public Article(String title, String body, String editorId, int good) {
 		this(-1, title, body, editorId, null,good);
 	}
+	
+	@Override
+	public String toString() {
+	    return "Article [id=" + id + ", title=" + title + ", body=" + body + "editorId =" +editorId +"entryDateime = "+entryDatetime+"good ="+good+"]";
+	}
+
 
 	public int getId() {
 		return id;

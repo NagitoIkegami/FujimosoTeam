@@ -25,12 +25,12 @@
 	<a href = ./EntryArticlePageServlet>新規記事登録</a><br><br>
 	<!-- EntryArticlePageServletにハイパーリンク．
 	ハイパーリンクによるアクセスは，GETアクセスとなり，サーブレットのdoGet()が呼ばれる． -->
-	<a href = ./EntryArticlePageServlet>記事検索</a><br><br>
+	<a href = ./Serch>記事検索</a><br><br>
 
 	<!-- 直前のサーブレットでrequestにsetAttributeしておいたオブジェクトを取り出す．
 	普通に取り出すとObject型になってしまうので，適宜キャストして変数に受け取る． -->
-	<%List<Article> aList = (List<Article>)( request.getAttribute("articleList") );%>
 	
+	<%List<Article> aList = (List<Article>)( request.getAttribute("articleList") );%>
 	<!-- javaの文法とhtmlを組み合わせて，記事リストを表示 -->
 	<%for(Article a : aList){%>
 		<!-- <label><%=String.valueOf(a.getId() )%></label> <br> -->
