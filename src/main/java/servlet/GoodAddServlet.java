@@ -31,7 +31,12 @@ public class GoodAddServlet extends HttpServlet {
 		System.out.println("テストログ1");
 		Likes likes = new Likes(userId, good);
 		//likesにinsertを実行
+		
+		//primary keyにinsertしてるからエラーはくが機能に影響は無し
 		dao.insertuserGood(likes);
+		
+		
+		
 		System.out.println("テストログ2");
 		
 		boolean usergood = false;
