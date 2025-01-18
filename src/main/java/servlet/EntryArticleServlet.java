@@ -30,7 +30,7 @@ public class EntryArticleServlet extends HttpServlet {
 		String title = request.getParameter("title");
 		String body = request.getParameter("body");
 //		int good = Integer.parseInt(request.getParameter("good"));
-		int good = 1;
+		int good = 0;
 		//request.getSession()でsessionを取得し，getAttribute("userId")でuserIdという名前の値を取得.
 		//ログイン時に設定した自分のuserIdが取れる．
 		//ただし，そのままではObject型になってしまうため，Stringにキャストして変数に受け取る．

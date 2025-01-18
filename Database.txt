@@ -75,7 +75,8 @@ samplebbsの内容がdumpファイルから復元される
 
 ---新規---------
 CREATE TABLE likes (
-    user_id VARCHAR(255),
-    article_id VARCHAR(255),
+    user_id VARCHAR(64),
+    article_id VARCHAR(64),
+    good BOOLEAN,
     PRIMARY KEY (user_id, article_id)
 );
