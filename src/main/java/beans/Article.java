@@ -11,6 +11,8 @@ public class Article implements Serializable{ //implements Serializableが必要
 	private String editorId; //著者のユーザId
 	private Timestamp entryDatetime; //登録日時
 	private int good; //いいね数
+	private boolean isFixed; // 固定フラグ（追加）
+	
 
 	//カラのコンストラクタが必要
 	public Article() {
@@ -24,6 +26,7 @@ public class Article implements Serializable{ //implements Serializableが必要
 		this.editorId = editorId;
 		this.entryDatetime = entryDatetime;
 		this.good = good;
+		this.isFixed = isFixed; // 固定フラグ
 	}
 
 	//idと登録日時が確定していない場合用のコンストラクタ
@@ -84,5 +87,13 @@ public class Article implements Serializable{ //implements Serializableが必要
 	public void setGood(int good) {
 		this.good = good;
 	}
+	
+    public boolean isFixed() {
+        return isFixed; // 固定フラグを取得
+    }
+
+    public void setFixed(boolean isFixed) {
+        this.isFixed = isFixed; // 固定フラグを設定
+    }
 
 }

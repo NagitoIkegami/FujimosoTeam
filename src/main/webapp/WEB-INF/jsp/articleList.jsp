@@ -33,22 +33,27 @@
 	<%List<Article> aList = (List<Article>)( request.getAttribute("articleList") );%>
 	<!-- javaの文法とhtmlを組み合わせて，記事リストを表示 -->
 	<%for(Article a : aList){%>
-		<!-- <label><%=String.valueOf(a.getId() )%></label> <br> -->
-		<!-- %の直後に=を付けると，そのまま値を表示できる．代わりに，<%out.print(a.getTitle());%>のように書くことも可能 -->
 		<label>タイトル：<%=a.getTitle()%></label> <br>
 		<label>本文：<br><%=a.getBody()%></label> <br>
 		<label>登録者：<%=a.getEditorId()%></label> <br>
 		<!-- 日時を指定のフォーマットで表示するための命令 -->
 		<%SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");%>
 		<label>登録日時：<%=sdf.format( a.getEntryDatetime() )%></label><br>
+
+		<!-- いいね機能のフォーム -->
 		<form action="./GoodAddServlet" method="post">
 			<label>いいね数:<%=a.getGood()%>  
-				      
 				<button type="submit" name="good" value="<%=a.getId() %>">いいね👍</button>
 			</label>
 		</form>
-		<br>
-		<br>
+		<form action="<%= request.getContextPath() %>/DeletedArticleServlet" method="post">
+            <input type="hidden" name="articleId" value="<%= a.getId() %>">
+             <button type="submit" onclick="return confirm('本当にこの記事を削除しますか？');">削除</button>
+         </form>
+		
+		
+
+		<br><br>
 	<%} %>
 </body>
 </html>
