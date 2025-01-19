@@ -46,13 +46,12 @@
 				<button type="submit" name="good" value="<%=a.getId() %>">いいね👍</button>
 			</label>
 		</form>
+		<!-- 削除機能 -->
 		<form action="<%= request.getContextPath() %>/DeletedArticleServlet" method="post">
-            <input type="hidden" name="articleId" value="<%= a.getId() %>">
-             <button type="submit" onclick="return confirm('本当にこの記事を削除しますか？');">削除</button>
-         </form>
+        <input type="hidden" name="articleId" value="<%= a.getId() %>">
+        <button type="submit" onclick="return confirm('本当にこの記事を削除しますか？');">削除</button>
+        </form>
 		
-		
-
 		<br><br>
 	<%} %>
 </body>
